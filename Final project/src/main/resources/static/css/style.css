@@ -1,0 +1,50 @@
+body
+{
+	background-color: lightgray;
+}
+/* nasz główny pojemnik */
+#container
+{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;	
+}
+.logo
+{
+	background-color: red;
+	text-align: center;
+	padding: 10px;
+}
+.nav
+{
+	background-color: blue;
+	float: left;
+	width: 120px;
+	min-height: 620px;
+	text-align: center;
+	padding: 10px;
+}
+.content
+{
+	background-color: white;
+	float: left;
+	padding: 20px;
+	width: 590px;
+	text-align: center;
+}
+.ad
+{
+	background-color: greenyellow;
+	float: left;
+	width: 210px;
+	min-height: 620px;
+	padding: 10px;
+}
+.footer
+{
+	background-color: black;
+	color: white;
+	clear: both;
+	padding: 10px;
+	text-align: center;
+}

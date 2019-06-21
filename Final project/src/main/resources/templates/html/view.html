@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="utf-8" />
+    <title>Strona</title>
+    <meta http-equiv="X-UA-Compatibile" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/view.css}" href="../../static/css/view.css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrapper">
+	<div th:insert="html/fragments :: header"></div>
+	<div class="content">
+		<div th:if="${param.view}">
+            <div th:if="${param.view[0] == 'add_book'}" th:insert="html/fragments :: add_book"></div>
+			<div th:if="${param.view[0] == 'edit_book'}" th:insert="html/fragments :: edit_book"></div>
+			<div th:if="${param.view[0] == 'remove_book'}" th:insert="html/fragments :: remove_book"></div>
+			<div th:if="${param.view[0] == 'show_book'}" th:insert="html/fragments :: show_book"></div>
+        </div>
+        <div class="footer">
+            Wszelkie prawa zastrzeżone &copy;  Rafał Lewandowski  e-mail:gonzicz83@gmail.com
+        </div>
+</div>
+<script>
+    $(document).ready(function() {
+    var NavY = $('.nav').offset().top;
+
+    var stickyNav = function(){
+    var ScrollY = $(window).scrollTop();
+
+    if (ScrollY > NavY) {
+        $('.nav').addClass('sticky');
+    } else {
+        $('.nav').removeClass('sticky');
+    }
+    };
+
+    stickyNav();
+
+    $(window).scroll(function() {
+        stickyNav();
+    });
+    });
+</script>
+</body>
+</html>

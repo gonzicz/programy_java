@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/">
+<head>
+    <meta charset="utf-8"/>
+    <title>Wirtualna biblioteka</title>
+    <meta name="description"
+          content="Serwis jest wirualną bibloteką, która posiada aktualne nowości! Wyporzycz, przeczytaj i poleć znajomym!"/>
+    <meta name="keywords" content="wirtualna bibloteka, nowości, ciekawe, ksiązki, komiksy, czytać"/>
+    <meta http-equiv="X-UA-Compatibile" content="IE=edge,chrome=1"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="style.css"/>
+</head>
+<body>
+<div id="container">
+    <div class="logo">
+        <h1>Wirtualna Bibloteka</h1>
+    </div>
+
+    <div class="nav">
+        TEXT1<br/>
+        TEXT2<br/>
+    </div>
+
+    <div class="content">
+
+        <div class="row" sec:authorize="hasAuthority('ADMIN')">
+            <h2>User Has Authority Admin</h2>
+        </div>
+
+        <h2>TOP 5 książek</h2>
+
+        <table border="1px solid black" align="center">
+            <thead>
+            <tr>
+                <th>Tytuł</th>
+                <!-- <th>Autor</th> -->
+                <th>Kategoria</th>
+                <th>Nr biblioteczny</th>
+                <th>Ilość wyporzyczeń</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book: ${allBooks}">
+                <!-- nazwy zmiennych muszą być tak jak w book -->
+                <td th:text="${book.title}">title</td>
+                <td th:text="${book.tags}">kategoria</td>
+                <td th:text="${book.libraryNumber}">nr biblioteczny</td>
+                <td th:text="${book.rent_counter}">ile</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ad">
+        <div id="login">
+            <fieldset>
+                <legend>ZALOGUJ SIĘ</legend>
+                <form th:action="@{/app/login}" method="post">
+                    <div><label>LOGIN <input type="text" name="login"/></label></div>
+                    <div><label>HASŁO <input type="password" name="password"/></label></div>
+                    <br/>
+                    <div><input type="submit" value="ZALOGUJ"/></div>
+                </form>
+            </fieldset>
+        </div>
+
+        miejsce na reklame
+    </div>
+
+    <div class="footer">
+        <h4> 2019 Rafał Lewandowski &copy; Wszelkie prawa zastrzeżone</h4>
+    </div>
+
+
+</div>
+
+</body>
+</html>

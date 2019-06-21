@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div th:fragment="header">
+    <div class="header">
+        <div class="logo">
+            Panel Admina
+        </div>
+    </div>
+
+    <div class="nav">
+        <ol>
+            <li><a href="#">Autor</a>
+                <ul>
+                    <li><a href="?view=add_author">Dodaj</a></li>
+                    <li><a href="?view=edit_author">Edytuj</a></li>
+                    <li><a href="?view=remove_author">Usuń</a></li>
+                    <li><a href="?view=show_authors">Pokaż wszystkich</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Książka</a>
+                <ul>
+                    <li><a href="?view=add_book">Dodaj</a></li>
+                    <li><a href="?view=edit_book">Edytuj</a></li>
+                    <li><a href="view=remove_book">Usuń</a></li>
+                    <li><a href="?view=show_book">Pokaż wszystkich</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Studenci</a></li>
+            <li><a href="#">XXX</a></li>
+            <li>
+                <form th:action="@{/app/logout}" method="post">
+                    <input type="submit" value="Logout">
+                </form>
+            </li>
+        </ol>
+
+    </div>
+</div>
+<div th:fragment="add_book">
+    <fieldset>
+        <legend>DODAJ KSIĄŻKĘ</legend>
+        <form method="post" action="/app/books">
+            <div><label>Tytuł <input type="text" name="title"/></label></div>
+            <div><label>Opis <input type="text" name="tags"/></label></div>
+            <div><label>Ilość wyporzyczeń <input type="number" name="rent_counter"/></label></div>
+            <br/>
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <div><input type="submit" value="DODAJ"/></div>
+        </form>
+    </fieldset>
+
+    </form>
+</div>
+<div th:fragment="edit_book">
+    EDIT FRAGMENT
+</div>
+<div th:fragment="remove_book">
+    REMOVE FRAGMENT
+</div>
+<div th:fragment="show_book">
+    SHOW FRAGMENT
+</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+INSERT INTO USER (Id, login, name, surname, password, role,mail) VALUES (1,'admin', 'rafal', null, '1234','ADMIN','admin@admin.com');
